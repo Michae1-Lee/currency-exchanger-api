@@ -22,7 +22,7 @@ public class ExchangeRatesService {
     }
     public ExchangeRate findByCodes(String code1, String code2){
         return exchangeRatesRepository.findByBaseCurrencyIdAndTargetCurrencyId
-                (currencyService.find(code1), currencyService.find(code2)).orElse(null);
+                (currencyService.find(code1).getId(), currencyService.find(code2).getId()).orElse(null);
     }
     public ExchangeRate find(int id){
         return exchangeRatesRepository.findById(id).orElse(null);
